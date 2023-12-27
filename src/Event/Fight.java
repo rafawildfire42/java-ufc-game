@@ -17,12 +17,14 @@ public class Fight {
     private int fighter2Points;
     private Fighter winner;
     private int numberOfRounds;
+    private Card card;
     public enum Result {
         WIN_AND_DEFEAT,
         DRAW,
         NO_CONTEST
     }
-    public Result result;
+    private Result result;
+
     public FightType getFightType() {
         return fightType;
     }

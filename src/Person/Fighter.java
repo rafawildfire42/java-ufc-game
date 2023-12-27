@@ -1,8 +1,53 @@
 package Person;
 
-public class Fighter extends Person {
+import java.util.Random;
+
+public class Fighter extends Person implements Actions{
 
     private String nickname;
+
+    @Override
+    public int attackHighKick() {
+        System.out.println(nickname + " atacando com um chute alto!");
+        return 8;
+    }
+
+    @Override
+    public int attackLowKick() {
+        System.out.println(nickname + " atacando com um chute baixo!");
+        return 5;
+    }
+
+    @Override
+    public int attackJab() {
+        System.out.println(nickname + " atacando com um jab!");
+        return 5;
+    }
+
+    @Override
+    public int attackUppercut() {
+        System.out.println(nickname + " atacando com um uppercut!");
+        return 8;
+    }
+
+    @Override
+    public int attackNearHeadChoke() {
+        System.out.println(nickname + " atacando com um mata leão!");
+        return 9;
+    }
+
+    @Override
+    public int attackArmTriangle() {
+        System.out.println(nickname + " atacando com um katagatame!");
+        return 9;
+    }
+
+    @Override
+    public int specialStrike() {
+        System.out.println(nickname + " atacando com um ataque especial!");
+        return 10;
+    }
+
     private enum weightClass {
         STRAW_WEIGHT,
         FLY_WEIGHT,
@@ -19,6 +64,43 @@ public class Fighter extends Person {
     private int numberOfFightsLost;
     private int numberOfFightsDraw;
     private int numberOfFightsNoContest;
+
+    private int chooseRandomDefense() {
+        Random random = new Random();
+        int defensePoint = random.nextInt(3, 11);
+        if (defensePoint < 6) {
+            System.out.println(nickname + " não defendeu bem!");
+        } else if (defensePoint > 9) {
+            System.out.println(nickname + " defendeu  muito bem!!");
+        } else {
+            System.out.println(nickname + " defendeu bem!");
+        }
+        return defensePoint;
+    }
+
+    private int chooseRandomAttack() {
+        Random random = new Random();
+        int randomNumber = random.nextInt(7);
+
+        switch (randomNumber) {
+            case 0:
+                return attackHighKick();
+            case 1:
+                return attackLowKick();
+            case 2:
+                return attackJab();
+            case 3:
+                return attackUppercut();
+            case 4:
+                return attackNearHeadChoke();
+            case 5:
+                return attackArmTriangle();
+            case 6:
+                return specialStrike();
+            default:
+                return 3;
+        }
+    }
 
     public String getNickname() {
         return nickname;

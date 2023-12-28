@@ -7,6 +7,14 @@ public class Arena {
     private int numberOfCommonSeats;
     private Address address;
 
+    public Arena(String name, int numberOfSeats, int numberOfVIPSeats, int numberOfCommonSeats, Address address) {
+        this.name = name;
+        this.numberOfSeats = numberOfSeats;
+        this.numberOfVIPSeats = numberOfVIPSeats;
+        this.numberOfCommonSeats = numberOfCommonSeats;
+        this.address = address;
+    }
+
     public String getName() {
         return name;
     }

@@ -6,6 +6,16 @@ public class Fighter extends Person implements Actions{
 
     private String nickname;
 
+    public Fighter(String name, int height, double weight, int age, String nickname) {
+        super(name, height, weight, age);
+        this.nickname = nickname;
+    }
+
+    @Override
+    public String toString() {
+        return nickname;
+    }
+
     @Override
     public int attackHighKick() {
         System.out.println(nickname + " atacando com um chute alto!");
@@ -65,20 +75,20 @@ public class Fighter extends Person implements Actions{
     private int numberOfFightsDraw;
     private int numberOfFightsNoContest;
 
-    private int chooseRandomDefense() {
+    public int chooseRandomDefense() {
         Random random = new Random();
         int defensePoint = random.nextInt(3, 11);
         if (defensePoint < 6) {
             System.out.println(nickname + " não defendeu bem!");
         } else if (defensePoint > 9) {
-            System.out.println(nickname + " defendeu  muito bem!!");
+            System.out.println(nickname + " defendeu muito bem!!");
         } else {
             System.out.println(nickname + " defendeu bem!");
         }
         return defensePoint;
     }
 
-    private int chooseRandomAttack() {
+    public int chooseRandomAttack() {
         Random random = new Random();
         int randomNumber = random.nextInt(7);
 
